@@ -15,7 +15,7 @@ std = [
     'frame-support/std',
     'sp-core/std',
     'sp-io/std',
-    'system/std',
+    'frame-system/std',
     'serde',
 ]
 
@@ -60,9 +60,8 @@ git = 'https://github.com/paritytech/substrate.git'
 tag = 'v2.0.1'
 version = '2.0.1'
 
-[dependencies.system]
+[dependencies.frame-system]
 default-features = false
 git = 'https://github.com/paritytech/substrate.git'
-package = 'frame-system'
 tag = 'v2.0.1'
 version = '2.0.1'

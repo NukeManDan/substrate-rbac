@@ -14,7 +14,7 @@ use frame_support::{
     weights::DispatchInfo,
     traits::GetCallMetadata
 };
-use system::{self as system, ensure_root, ensure_signed};
+use frame_system::{self as frame_system, ensure_root, ensure_signed};
 use sp_runtime::{
     print, RuntimeDebug,
     transaction_validity::{
@@ -25,8 +25,8 @@ use sp_runtime::{
     traits::{SignedExtension, DispatchInfoOf, Dispatchable}
 };
 
-pub trait Trait: system::Trait {
-    type Event: From<Event<Self>> + Into<<Self as system::Trait>::Event>;    
+pub trait Trait: frame_system::Trait {
+    type Event: From<Event<Self>> + Into<<Self as frame_system::Trait>::Event>;    
 }
 
 #[derive(PartialEq, Eq, Clone, RuntimeDebug, Encode, Decode)]
@@ -133,7 +133,7 @@ decl_module! {
 decl_event!(
     pub enum Event<T>
     where
-        AccountId = <T as system::Trait>::AccountId,
+        AccountId = <T as frame_system::Trait>::AccountId,
     {
         AccessRevoked(AccountId, Vec<u8>),
         AccessGranted(AccountId, Vec<u8>),
